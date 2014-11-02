@@ -1,72 +1,64 @@
 classrooms:
-
   - name: Classroom1
 
-  - name: Classroom2
-
-  - name: Classroom3
-
-
 students:
-
   - name: Student1
     classroom_id: 1
-
+    email: student1@gmail.com
+    password: password
   - name: Student2
     classroom_id: 1
-
+    email: student2@gmail.com
+    password: password
   - name: Student3
     classroom_id: 1
+    email: student3@gmail.com
+    password: password
 
+teachers:
+  - name: Sam
+    email: sam@sam.com
+    password: password
 
 tests:
-
   - classroom_id: 1
     name: Test1
-
   - classroom_id: 2
     name: Test2
-
   - classroom_id: 3
     name: Test3
 
 questions:
-
   - test_id: 1
     question: What is the meaning of life?
     difficulty: 1
     subject: Philosophy
     answer_choice: ['1', '2', '3', '4', '5']
     correct_answer: A
-
   - test_id: 1
     question: What is the meaning of life2?
     difficulty: 1
     subject: Philosophy
     answer_choice: ['1', '2', '3', '4', '5']
     correct_answer: A
-
   - test_id: 1
     question: What is the meaning of life3?
     difficulty: 1
     subject: Philosophy
     answer_choice: ['1', '2', '3', '4', '5']
     correct_answer: A
-
   - test_id: 1
     question: What is the meaning of life4?
     difficulty: 1
     subject: Philosophy
     answer_choice: ['1', '2', '3', '4', '5']
     correct_answer: A
-
   - test_id: 1
     question: What is the meaning of life5?
     difficulty: 1
     subject: Philosophy
     answer_choice: ['1', '2', '3', '4', '5']
     correct_answer: A
-
   - test_id: 1
     question: What is the meaning of life6?
     difficulty: 1
@@ -75,21 +67,15 @@ questions:
     correct_answer: A
 
 answers:
-
   - question_id: 1
     answer: A
-
   - question_id: 2
     answer: B
-
   - question_id: 3
     answer: C
-
   - question_id: 4
     answer: A
-
   - question_id: 5
     answer: B
-
   - question_id: 6
     answer: C

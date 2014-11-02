@@ -11,10 +11,15 @@ def create_classrooms
 end
 
 def create_students
-  SEEDS['students'].each do |student|
-    Student.create!  name: student['name'],
-                     classroom_id: student['classroom_id']
-  end   
+  SEEDS['students'].each do |student_attributes|
+    Student.create! student_attributes
+  end
+end
+
+def create_teachers
+  SEEDS['teachers'].each do |teacher_attributes|
+    Teacher.create! teacher_attributes
+  end
 end
 
 def create_tests
@@ -32,7 +37,7 @@ def create_questions
                         subject: question['subject'],
                         answer_choice: question['answer_choice'],
                         correct_answer: question['correct_answer']
-    end     
+    end
 end
 
 def create_answers
