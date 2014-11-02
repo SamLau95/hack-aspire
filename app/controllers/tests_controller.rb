@@ -1,4 +1,6 @@
 class TestsController < ApplicationController
+  before_filter :verify_not_taken
+
   def show
     @test = Test.first
     @questions = @test.questions
@@ -13,5 +15,11 @@ class TestsController < ApplicationController
                          answer: answer
     end
     redirect_to done_page_path
+  end
+
+  private
+
+  def verify_not_taken
+    redirect_to done_page_path, error: "You've already taken the test!" if current_user.taken_test?
   end
 end

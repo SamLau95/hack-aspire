@@ -35,6 +35,10 @@ class Student < User
     true
   end
 
+  def taken_test?
+    answers.any?
+  end
+
   def set_classroom
     self.classroom = Classroom.first
   end
