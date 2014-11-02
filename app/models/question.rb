@@ -11,6 +11,7 @@
 #  created_at     :datetime
 #  updated_at     :datetime
 #  answer_choice  :text             is an Array
+#  number         :integer
 #
 
 class Question < ActiveRecord::Base

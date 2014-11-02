@@ -8,6 +8,7 @@
 #  answer      :string(255)
 #  created_at  :datetime
 #  updated_at  :datetime
+#  correct     :boolean          default(FALSE)
 #
 
 require 'test_helper'
