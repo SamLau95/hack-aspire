@@ -10,11 +10,7 @@
 #  correct_answer :text
 #  created_at     :datetime
 #  updated_at     :datetime
-<<<<<<< HEAD
-#  answer_choice  :string(255)      is an Array
-=======
 #  answer_choice  :text             is an Array
->>>>>>> 84bc65bc604c9bce5a6bb678c69e6c2bcb736a27
 #
 
 class Question < ActiveRecord::Base
