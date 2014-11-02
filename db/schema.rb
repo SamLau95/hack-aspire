@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20141102060909) do
 
   create_table "answers", force: true do |t|
     t.integer  "question_id"
+    t.integer  "student_id"
     t.string   "answer"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -31,13 +32,13 @@ ActiveRecord::Schema.define(version: 20141102060909) do
 
   create_table "questions", force: true do |t|
     t.integer  "test_id"
-    t.string   "question"
+    t.text     "question"
     t.integer  "difficulty"
-    t.string   "subject"
-    t.string   "correct_answer"
+    t.text     "subject"
+    t.text     "correct_answer"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "answer_choice",  array: true
+    t.text     "answer_choice",  array: true
   end
 
   create_table "students", force: true do |t|
