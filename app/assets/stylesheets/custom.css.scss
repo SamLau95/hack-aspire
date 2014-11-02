@@ -1,0 +1,27 @@
+.feature {
+  position: absolute;
+  left: 0;
+  top: 75px;
+  background-image:url('/assets/classroom.jpg');
+  background-color:white;
+  background-size: cover;
+  width:100%;
+  height:500px;
+}
+
+.registration {
+  margin-top: 500px;
+  padding: 20px;
+}
+
+.centered {
+  text-align: center;
+}
+
+.control-group.boolean.user_remember_me {
+  label, .controls { display: inline; }
+  input.boolean {
+    position: static;
+    margin: 5px;
+  }
+}
