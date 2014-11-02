@@ -20,4 +20,7 @@
 #
 
 class Teacher < User
+  def teacher?
+    true
+  end
 end

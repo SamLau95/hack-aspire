@@ -22,4 +22,8 @@
 class Student < User
   belongs_to :classroom
   has_many :answers
+
+  def student?
+    true
+  end
 end
