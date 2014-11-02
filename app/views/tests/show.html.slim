@@ -1,0 +1,11 @@
+= form_tag(submit_test_path) do
+  - @questions.each do |q|
+    = q.question
+    br
+      - counter = 'A'
+      - q.answer_choice.each do |c|
+        | <input type="radio" name="answers[#{q.id}]" value=#{counter}> #{counter} #{c}
+        br
+          - counter = counter.next
+      br
+  = submit_tag "Submit", class: "btn btn-large btn-primary"

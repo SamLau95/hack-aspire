@@ -1,9 +1,0 @@
-<% @questions.each do |q| %>
-	<%= q.question %> <br>
-	<% counter = 'A' %>
-	<% q.answer_choice.each do |c| %>
-		<%= counter %> <%= c %> <br>
-		<% counter = counter.next %>
-	<% end %>
-	<br>
-<% end %>
