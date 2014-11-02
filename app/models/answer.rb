@@ -16,6 +16,7 @@ class Answer < ActiveRecord::Base
   belongs_to :student, counter_cache: true
 
   validates :question_id, :student_id, presence: true
+  validates_uniqueness_of :student_id, scope: :question_id
 
   scope :correct, -> { where correct: true }
 
