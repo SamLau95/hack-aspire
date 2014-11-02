@@ -2,10 +2,10 @@ class CreateQuestions < ActiveRecord::Migration
   def change
     create_table :questions do |t|
       t.references :test
-      t.string :question
+      t.text :question, :limit => nil
       t.integer :difficulty
-      t.string :subject
-      t.string :correct_answer
+      t.text :subject
+      t.text :correct_answer
       t.timestamps
     end
   end
