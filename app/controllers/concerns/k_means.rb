@@ -1,45 +1,70 @@
 class KMeans
-  MAX_ITERATIONS = 100
+  MAX_ITERATIONS = 10
 
   def initialize(data, num_features, num_centroids)
     @data = data
+    # @data = [[1 +, 1, 1, 0, 0, 0, 0, 0]] * 10 + [[0,0,0,0,0,1,1,1]] * 10
     @num_features = num_features
     @num_centroids = num_centroids
+    execute
   end
 
   def execute
-    centroids = gen_random_centroids
+    @centroids = gen_random_centroids
+    # binding.pry
     MAX_ITERATIONS.times do
-      buckets = Hash.new
-      centroids.each do |centroid|
-        buckets[centroid] = Array.new
+      p @centroids
+      groups = initialize_groups @centroids
+
+      # Assign each datum to it's closest centroid
+      @data.each do |datum|
+        c = @centroids.min_by { |centroid| dist(datum, centroid)}
+        groups[c].push(datum)
       end
 
-      data.each do |datum|
-        # Find the closest centroid
-        centroids.each do |centroid|
-          dist(datum, centroid)
-        end
-
+      # Find mean of each bucket
+      new_centroids = Array.new
+      groups.each do |centroid, points|
+        new_centroids.push(mean(points))
       end
 
+      @centroids = new_centroids
     end
+  end
 
-    # While less than max iterations or no change
+  def getLabels
+    @data.map do |datum|
+      @centroids.index(@centroids.min_by { |centroid| dist(datum, centroid)})
+    end
+  end
+
+  protected
+
+  def initialize_groups(centroids)
+    groups = Hash.new
+    centroids.each do |centroid|
+      groups[centroid] = Array.new
+    end
+    groups
   end
 
   def gen_random_centroids
     # Pick n random centroids out of the data
-    @data.shuffle [0, @num_centroids]
+    @data.shuffle.first @num_centroids
+    # @num_centroids.times.map { @data[0].length.times.map { rand } }
+  end
+
+  def mean(points)
+    points.transpose.map(&:sum).map { |n| n.to_f / points.length }
   end
 
   def dist(x,y)
     # Returns euclidean distance of two vectors
-    dist = 0
+    dist = 0.0
     x.zip(y).each do |i,j|
       dist += (i - j) ** 2
     end
-    dist ** 1/2
+    dist ** (1.0/2)
   end
 
 end
