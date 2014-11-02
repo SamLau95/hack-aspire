@@ -30,7 +30,6 @@ tests:
   - classroom_id: 3
     name: Test3
 
-# calculated as average of all reviews that have id of rating
 questions:
 
   - test_id: 1
