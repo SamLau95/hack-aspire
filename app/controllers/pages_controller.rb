@@ -4,7 +4,4 @@ class PagesController < ApplicationController
 
   def done
   end
-
-  def analytics
-  end
 end

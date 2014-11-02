@@ -1,5 +1,5 @@
 class KMeans
-  MAX_ITERATIONS = 10
+  MAX_ITERATIONS = 100
 
   def initialize(data, num_features, num_centroids)
     @data = data
@@ -16,7 +16,7 @@ class KMeans
       p @centroids
       groups = initialize_groups @centroids
 
-      # Assign each datum to it's closest centroid
+      # Assign each datum to its closest centroid
       @data.each do |datum|
         c = @centroids.min_by { |centroid| dist(datum, centroid)}
         groups[c].push(datum)
@@ -32,7 +32,7 @@ class KMeans
     end
   end
 
-  def getLabels
+  def get_labels
     @data.map do |datum|
       @centroids.index(@centroids.min_by { |centroid| dist(datum, centroid)})
     end
