@@ -12,4 +12,6 @@
 class Test < ActiveRecord::Base
   belongs_to :classroom
   has_many :questions
+
+  validates :classroom_id, presence: true
 end

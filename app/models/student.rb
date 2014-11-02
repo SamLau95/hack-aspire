@@ -17,13 +17,22 @@
 #  updated_at             :datetime
 #  name                   :string(255)
 #  type                   :string(255)
+#  classroom_id           :integer
 #
 
 class Student < User
   belongs_to :classroom
   has_many :answers
 
+  validates :classroom_id, presence: true
+
+  after_initialize :set_classroom
+
   def student?
     true
+  end
+
+  def set_classroom
+    self.classroom = Classroom.first
   end
 end

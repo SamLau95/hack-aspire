@@ -10,6 +10,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     resource = Student.new(sign_up_params)
+    1/0
 
     resource_saved = resource.save
     yield resource if block_given?
