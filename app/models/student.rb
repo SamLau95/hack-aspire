@@ -28,6 +28,8 @@ class Student < User
 
   after_initialize :set_classroom
 
+  include Scorable
+
   def student?
     true
   end

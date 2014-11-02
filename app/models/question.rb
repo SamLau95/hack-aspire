@@ -18,4 +18,6 @@ class Question < ActiveRecord::Base
   has_many :answers
 
   validates :test_id, presence: true
+
+  include Scorable
 end
