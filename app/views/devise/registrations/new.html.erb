@@ -1,18 +1,33 @@
-<h2>Sign up</h2>
-
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :name, required: true, autofocus: true %>
-    <%= f.input :email, required: true  %>
-    <%= f.input :password, required: true %>
-    <%= f.input :password_confirmation, required: true %>
+<div class="registration">
+  
+  <h2 class="centered">Inspire Analytics</h2> 
+  <div class="centered">
+    <h4>Helping Students.</h4>
+    <p>We help students gain transparency in subjects they need improvement in </p>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
+  <div class="centered">
+    <h4>Helping Teachers.</h4>
+    <p>We run a machine learning algorithm to cluster students into different buckets based on what questions they need the most help on so that teachers can work with them more efficiently in focus groups.</p>
   </div>
-<% end %>
 
-<%= render "devise/shared/links" %>
+  <br>
+  <h2 class="centered">Sign up</h2>
+  <div class="centered">Sign up as a student, take a mock SAT exam, and improve your SAT score!</div>
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= f.error_notification %>
+
+    <div class="form-inputs centered">
+      <%= f.input :name, required: true, autofocus: true %>
+      <%= f.input :email, required: true  %>
+      <%= f.input :password, required: true %>
+      <%= f.input :password_confirmation, required: true %>
+    </div>
+
+    <div class="form-actions centered">
+      <br>
+      <%= f.button :submit, "Sign up" %>
+    </div>
+  <% end %>
+
+</div>
