@@ -13,5 +13,6 @@ h4 For the writing questions, choose the answer that best replaces the quoted ph
         <input type="radio" name="answers[#{q.id}]" value=#{counter}> #{counter}. #{c}
         br
           - counter = counter.next
+      <input checked="checked" type="radio" name="answers[#{q.id}]" value="">
       br
   = submit_tag "Submit", class: "btn btn-large btn-primary"
