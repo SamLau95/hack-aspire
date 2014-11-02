@@ -6,9 +6,9 @@ class ApplicationController < ActionController::Base
   # TODO: use actual routes
   def after_sign_in_path_for(user)
     if user.student?
-      home_path
+      test_path
     elsif user.teacher?
-      home_path
+      analytics_path
     else
       fail 'Bad user!'
     end
