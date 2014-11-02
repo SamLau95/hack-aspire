@@ -5,7 +5,7 @@ h4 For the writing questions, choose the answer that best replaces the quoted ph
 = form_tag(submit_test_path) do
   - number = 1
   - @questions.each do |q|
-    = "#{number}. #{q.question}"
+    = "#{q.number}. #{q.question}"
     - number += 1
     br
       - counter = 'A'
