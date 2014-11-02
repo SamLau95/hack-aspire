@@ -9,6 +9,8 @@ class ApplicationController < ActionController::Base
       home_path
     elsif user.teacher?
       home_path
+    else
+      fail 'Bad user!'
     end
   end
 end
