@@ -10,7 +10,7 @@ h4 For the writing questions, choose the answer that best replaces the quoted ph
     br
       - counter = 'A'
       - q.answer_choice.each do |c|
-        | <input type="radio" name="answers[#{q.id}]" value=#{counter}> #{counter}. #{c}
+        <input type="radio" name="answers[#{q.id}]" value=#{counter}> #{counter}. #{c}
         br
           - counter = counter.next
       br

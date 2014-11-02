@@ -4,7 +4,6 @@ class TestsController < ApplicationController
   	@questions = @test.questions
   end
 
-  # takes the form data and processes it; stores array of 0's and 1's
   def submit
   	answers = params[:answers]
   	count = 0
