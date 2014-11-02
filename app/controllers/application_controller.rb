@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
     if user.student?
       test_path
     elsif user.teacher?
-      analytics_path
+      analytics_teachers_path
     else
       fail 'Bad user!'
     end

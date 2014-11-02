@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     root to: 'devise/registrations#new'
   end
 
-  resources :pages, only: [] do
+  resource :page, only: [], controller: 'pages' do
     collection do
       get :done
     end
@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resource :test, only: :new do
+  resource :test, only: :show do
     member do
       post :submit
     end
