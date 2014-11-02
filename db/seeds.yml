@@ -36,36 +36,42 @@ questions:
     question: What is the meaning of life?
     difficulty: 1
     subject: Philosophy
+    answer_choice: ['1', '2', '3', '4', '5']
     correct_answer: A
 
   - test_id: 1
     question: What is the meaning of life2?
     difficulty: 1
     subject: Philosophy
+    answer_choice: ['1', '2', '3', '4', '5']
     correct_answer: A
 
   - test_id: 1
     question: What is the meaning of life3?
     difficulty: 1
     subject: Philosophy
+    answer_choice: ['1', '2', '3', '4', '5']
     correct_answer: A
 
   - test_id: 1
     question: What is the meaning of life4?
     difficulty: 1
     subject: Philosophy
+    answer_choice: ['1', '2', '3', '4', '5']
     correct_answer: A
 
   - test_id: 1
     question: What is the meaning of life5?
     difficulty: 1
     subject: Philosophy
+    answer_choice: ['1', '2', '3', '4', '5']
     correct_answer: A
 
   - test_id: 1
     question: What is the meaning of life6?
     difficulty: 1
     subject: Philosophy
+    answer_choice: ['1', '2', '3', '4', '5']
     correct_answer: A
 
 answers:

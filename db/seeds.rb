@@ -30,6 +30,7 @@ def create_questions
                         question: question['question'],
                         difficulty: question['difficulty'],
                         subject: question['subject'],
+                        answer_choice: question['answer_choice'],
                         correct_answer: question['correct_answer']
     end     
 end
