@@ -13,10 +13,7 @@ html
     = csrf_meta_tags
   body
     .container
-      .header
-        ul.nav.nav-pills.pull-right
-          li Header
-        h3.text-muted Aspire Data Analytics
+      = render 'shared/header'
       = yield
 
   = render 'shared/flash', flash: flash
