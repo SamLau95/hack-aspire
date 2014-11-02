@@ -3,7 +3,6 @@ class KMeans
 
   def initialize(data, num_features, num_centroids)
     @data = data
-    # @data = [[1 +, 1, 1, 0, 0, 0, 0, 0]] * 10 + [[0,0,0,0,0,1,1,1]] * 10
     @num_features = num_features
     @num_centroids = num_centroids
     execute
