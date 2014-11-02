@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
-  root to: 'pages#home'
-  devise_for :users
+  devise_for :users, controllers: { registrations: 'users/registrations' }
+  devise_scope :user do
+    root to: 'devise/registrations#new'
+  end
+
+  resources :pages, only: [] do
+    collection do
+      get :done
+    end
+  end
 
   resources :teachers, only: [] do
     collection do
@@ -8,4 +16,9 @@ Rails.application.routes.draw do
     end
   end
 
+  resource :test, only: :new do
+    member do
+      post :submit
+    end
+  end
 end

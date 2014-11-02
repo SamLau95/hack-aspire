@@ -19,15 +19,11 @@
 #  type                   :string(255)
 #
 
-class User < ActiveRecord::Base
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+class Student < User
+  belongs_to :classroom
+  has_many :answers
 
   def student?
-    false
-  end
-
-  def teacher?
-    false
+    true
   end
 end

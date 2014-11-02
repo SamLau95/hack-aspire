@@ -19,15 +19,8 @@
 #  type                   :string(255)
 #
 
-class User < ActiveRecord::Base
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
-
-  def student?
-    false
-  end
-
+class Teacher < User
   def teacher?
-    false
+    true
   end
 end

@@ -19,15 +19,10 @@
 #  type                   :string(255)
 #
 
-class User < ActiveRecord::Base
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+require 'test_helper'
 
-  def student?
-    false
-  end
-
-  def teacher?
-    false
-  end
+class StudentTest < ActiveSupport::TestCase
+  # test "the truth" do
+  #   assert true
+  # end
 end
