@@ -18,6 +18,7 @@
 #  name                   :string(255)
 #  type                   :string(255)
 #  classroom_id           :integer
+#  answers_count          :integer          default(0)
 #
 
 class User < ActiveRecord::Base

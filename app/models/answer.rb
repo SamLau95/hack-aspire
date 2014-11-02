@@ -12,8 +12,8 @@
 #
 
 class Answer < ActiveRecord::Base
-  belongs_to :question
-  belongs_to :student
+  belongs_to :question, counter_cache: true
+  belongs_to :student, counter_cache: true
 
   validates :question_id, :student_id, presence: true
 
