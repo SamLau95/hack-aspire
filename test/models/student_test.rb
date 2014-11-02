@@ -17,6 +17,7 @@
 #  updated_at             :datetime
 #  name                   :string(255)
 #  type                   :string(255)
+#  classroom_id           :integer
 #
 
 require 'test_helper'

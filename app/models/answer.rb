@@ -13,4 +13,6 @@
 class Answer < ActiveRecord::Base
   belongs_to :question
   belongs_to :student
+
+  validates :question_id, :student_id, presence: true
 end

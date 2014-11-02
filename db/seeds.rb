@@ -5,45 +5,38 @@ end
 SEEDS = seeds
 
 def create_classrooms
-  SEEDS['classrooms'].each do |classroom|
-    Classroom.create! name: classroom['name']
+  SEEDS['classrooms'].each do |classroom_attrs|
+    Classroom.create! classroom_attrs
   end
 end
 
 def create_students
-  SEEDS['students'].each do |student_attributes|
-    Student.create! student_attributes
+  SEEDS['students'].each do |student_attrs|
+    Student.create! student_attrs
   end
 end
 
 def create_teachers
-  SEEDS['teachers'].each do |teacher_attributes|
-    Teacher.create! teacher_attributes
+  SEEDS['teachers'].each do |teacher_attrs|
+    Teacher.create! teacher_attrs
   end
 end
 
 def create_tests
-  SEEDS['tests'].each do |test|
-    Test.create! classroom_id: test['classroom_id'],
-                 name: test['name']
+  SEEDS['tests'].each do |test_attrs|
+    Test.create! test_attrs
   end
 end
 
 def create_questions
-  SEEDS['questions'].each do |question|
-    Question.create!    test_id: question['test_id'],
-                        question: question['question'],
-                        difficulty: question['difficulty'],
-                        subject: question['subject'],
-                        answer_choice: question['answer_choice'],
-                        correct_answer: question['correct_answer']
+  SEEDS['questions'].each do |question_attrs|
+    Question.create! question_attrs
     end
 end
 
 def create_answers
-  SEEDS['answers'].each do |avail|
-    Answer.create! question_id: avail['question_id'],
-                   answer: avail['answer']
+  SEEDS['answers'].each do |answer_attrs|
+    Answer.create! answer_attrs
   end
 end
 
