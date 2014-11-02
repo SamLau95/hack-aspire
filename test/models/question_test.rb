@@ -10,6 +10,7 @@
 #  correct_answer :string(255)
 #  created_at     :datetime
 #  updated_at     :datetime
+#  answer_choice  :string(255)      is an Array
 #
 
 require 'test_helper'

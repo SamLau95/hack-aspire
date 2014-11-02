@@ -19,10 +19,5 @@
 #  type                   :string(255)
 #
 
-require 'test_helper'
-
-class StudentTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+class Teacher < User
 end

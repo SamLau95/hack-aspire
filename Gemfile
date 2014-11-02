@@ -35,6 +35,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'pry-rescue'
   gem 'guard-livereload'
+  gem 'awesome_print'
 end
 
 group :production do
