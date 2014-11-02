@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Merlin</title>
+  <title>Hack Aspire</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class="container">
+    <div class="header">
+      <ul class="nav nav-pills pull-right">
+        <li>Header</li>
+      </ul>
+      <h3 class="text-muted">Aspire Data Analytics</h3>
+    </div>
 
-<%= yield %>
-
+    <%= yield %>
+  </div>
 </body>
 </html>
