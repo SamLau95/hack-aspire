@@ -1,9 +1,9 @@
 function ready() {
-  var groups = [{'id': 0, 'group': 0, 'size': 10, 'avg': 20, 'users': [{'id':1,'score':10,'name':"test"}, {'id':1,'score':10,'name':"test"}]},
-                {'id': 1, 'group': 1, 'size': 8, 'avg': 40, 'users': [{'id':1,'score':10,'name':"test"}]},
-                {'id': 2, 'group': 3, 'size': 8, 'avg': 85, 'users': [{'id':1,'score':10,'name':"test"}]},
-                {'id': 3, 'group': 4, 'size': 8, 'avg': 20, 'users': [{'id':1,'score':10,'name':"test"}]},
-                {'id': 4, 'group': 5, 'size': 6, 'avg': 10, 'users': [{'id':1,'score':10,'name':"test"}]}];
+  var groups = [{'id': 0, 'group': 0, 'size': 3, 'avg': 20, 'users': [{'id':1,'score':10,'name':"test"}, {'id':1,'score':10,'name':"test"}]},
+                {'id': 1, 'group': 1, 'size': 8, 'avg': 40, 'users': [{'id':1,'score':10,'name':"test"}, {'id':1,'score':10,'name':"test"},{'id':1,'score':10,'name':"test"},{'id':1,'score':10,'name':"test"},{'id':1,'score':10,'name':"test"},{'id':1,'score':10,'name':"test"},{'id':1,'score':10,'name':"test"},{'id':1,'score':10,'name':"test"},{'id':1,'score':10,'name':"test"}]},
+                {'id': 2, 'group': 3, 'size': 3, 'avg': 85, 'users': [{'id':1,'score':10,'name':"test"}, {'id':1,'score':10,'name':"test"},{'id':1,'score':10,'name':"test"},{'id':1,'score':10,'name':"test"}]},
+                {'id': 3, 'group': 4, 'size': 3, 'avg': 20, 'users': [{'id':1,'score':10,'name':"test"},{'id':1,'score':10,'name':"test"},{'id':1,'score':10,'name':"test"},{'id':1,'score':10,'name':"test"}]},
+                {'id': 4, 'group': 5, 'size': 6, 'avg': 10, 'users': [{'id':1,'score':10,'name':"test"},{'id':1,'score':10,'name':"test"},{'id':1,'score':10,'name':"test"},{'id':1,'score':10,'name':"test"},{'id':1,'score':10,'name':"test"},{'id':1,'score':10,'name':"test"},{'id':1,'score':10,'name':"test"}]}];
 
   var margin = {top: 10, right: 10, bottom: 10, left: 10};
   var w = 500
@@ -32,7 +32,8 @@ function ready() {
       y: Math.random() * (h-padding*3),
       avg: d.avg,
       group: d.group,
-      users: d.users
+      users: d.users,
+      radius: d.size
     };
     nodes.push(node);
   });
@@ -56,7 +57,7 @@ function ready() {
   // circle.transition().duration(2000).delay(500).attr("r", function(d) { return d.radius * 8; });
 
   function charge(d) {
-    return -Math.pow(d.radius, 3.5) / 6;
+    return -Math.pow(d.radius, 4.0) / 6;
   }
 
   function move_towards_center(alpha) {

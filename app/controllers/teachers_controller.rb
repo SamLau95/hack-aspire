@@ -4,7 +4,7 @@ class TeachersController < ApplicationController
   def analytics
     data = DataExtractor.new(Student.taken_test).execute
     groupings = KMeans.new(data).get_labels
-    gon.push data: GroupingsToJson.new(groupings).execute
+    gon.push group_data: GroupingsToJson.new(groupings).execute
   end
 
   def students
