@@ -3,5 +3,6 @@ class PagesController < ApplicationController
   end
 
   def done
+    @performance = current_user.performance
   end
 end
