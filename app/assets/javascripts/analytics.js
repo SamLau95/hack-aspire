@@ -1,9 +1,5 @@
 function ready() {
-  var groups = [{'id': 0, 'group': 0, 'size': 3, 'avg': 20, 'users': [{'id':1,'score':10,'name':"test"}, {'id':1,'score':10,'name':"test"}]},
-                {'id': 1, 'group': 1, 'size': 8, 'avg': 40, 'users': [{'id':1,'score':10,'name':"test"}, {'id':1,'score':10,'name':"test"},{'id':1,'score':10,'name':"test"},{'id':1,'score':10,'name':"test"},{'id':1,'score':10,'name':"test"},{'id':1,'score':10,'name':"test"},{'id':1,'score':10,'name':"test"},{'id':1,'score':10,'name':"test"},{'id':1,'score':10,'name':"test"}]},
-                {'id': 2, 'group': 3, 'size': 3, 'avg': 85, 'users': [{'id':1,'score':10,'name':"test"}, {'id':1,'score':10,'name':"test"},{'id':1,'score':10,'name':"test"},{'id':1,'score':10,'name':"test"}]},
-                {'id': 3, 'group': 4, 'size': 3, 'avg': 20, 'users': [{'id':1,'score':10,'name':"test"},{'id':1,'score':10,'name':"test"},{'id':1,'score':10,'name':"test"},{'id':1,'score':10,'name':"test"}]},
-                {'id': 4, 'group': 5, 'size': 6, 'avg': 10, 'users': [{'id':1,'score':10,'name':"test"},{'id':1,'score':10,'name':"test"},{'id':1,'score':10,'name':"test"},{'id':1,'score':10,'name':"test"},{'id':1,'score':10,'name':"test"},{'id':1,'score':10,'name':"test"},{'id':1,'score':10,'name':"test"}]}];
+  var groups = JSON.parse(gon.group_data);
 
   var margin = {top: 10, right: 10, bottom: 10, left: 10};
   var w = 500
@@ -30,9 +26,9 @@ function ready() {
       id: d.id,
       x: Math.random() * (w-padding*3),
       y: Math.random() * (h-padding*3),
-      avg: d.avg,
+      avg: d.avg || 10,
       group: d.group,
-      users: d.users,
+      users: d.students,
       radius: d.size
     };
     nodes.push(node);
