@@ -14,7 +14,6 @@ class GroupingsToJson
               avg: get_student_avgs(students) }
       result << res
     end
-    binding.pry
     result.to_json
   end
 
