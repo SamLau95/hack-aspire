@@ -41,8 +41,8 @@ def create_answers
 end
 
 create_classrooms
-create_students
+# create_students
 create_teachers
 create_tests
 create_questions
-create_answers
+# create_answers
