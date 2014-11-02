@@ -4,13 +4,13 @@
 #
 #  id             :integer          not null, primary key
 #  test_id        :integer
-#  question       :string(255)
+#  question       :text
 #  difficulty     :integer
-#  subject        :string(255)
-#  correct_answer :string(255)
+#  subject        :text
+#  correct_answer :text
 #  created_at     :datetime
 #  updated_at     :datetime
-#  answer_choice  :string(255)      is an Array
+#  answer_choice  :text             is an Array
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
