@@ -9,12 +9,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
-    resource = Student.new(sign_up_params)
+    resource = Student.new(sign_up_params.merge(name: params[:user][:name]))
 
     resource_saved = resource.save
     if !resource.save
       flash[:error] = 'Bad attributes!'
-      redirect_to root_path
+      1/0
+      redirect_to root_path and return
     end
 
     yield resource if block_given?
