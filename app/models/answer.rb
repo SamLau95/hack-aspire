@@ -19,6 +19,7 @@ class Answer < ActiveRecord::Base
   validates_uniqueness_of :student_id, scope: :question_id
 
   scope :correct, -> { where correct: true }
+  scope :incorrect, -> { where correct: false }
 
   before_save :set_correct
 

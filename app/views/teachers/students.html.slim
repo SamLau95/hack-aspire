@@ -3,7 +3,17 @@ h1 Student Performance
 - for student in @students
   = "Student: #{student.email}" 
   br
-  = "Performance: #{student.performance}"
+  = "Number Correct: #{student.n_correct} / #{student.total}"
+  br
+  - d = {}
+  -  student.answers.incorrect.each do |i|
+  	- if !d[i.question.subject]
+  	  - d[i.question.subject] = 1
+  	- else
+  	  - d[i.question.subject] += 1
+  = "Number missed in section: "
+  - d.each do|key, array|
+    = "#{key}: #{array} "
   br 
   br
 
