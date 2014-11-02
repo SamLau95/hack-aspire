@@ -16,6 +16,8 @@
 #
 
 class Question < ActiveRecord::Base
+  default_scope -> { order :number }
+
   has_many :answers
 
   validates :test_id, presence: true
