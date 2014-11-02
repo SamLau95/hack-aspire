@@ -19,7 +19,8 @@ class TestsController < ApplicationController
         correct += 1
       end
   	end
-    puts "#{correct}/#{count} scored correctly!"
+    current_user.performance = "#{correct}/#{count}"
+    current_user.save
     redirect_to done_page_path
   end
 end
