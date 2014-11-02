@@ -20,6 +20,9 @@ class TestsController < ApplicationController
   private
 
   def verify_not_taken
-    redirect_to done_page_path, error: "You've already taken the test!" if current_user.taken_test?
+    if current_user.taken_test?
+      flash[:error] = "You've already taken the test!"
+      redirect_to done_page_path
+    end
   end
 end
