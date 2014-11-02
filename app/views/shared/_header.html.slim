@@ -1,0 +1,5 @@
+.header
+  ul.nav.nav-pills.pull-right
+    li class=[hidden_if?(user_signed_in?)] = link_to 'Log in', new_user_session_path
+    li class=[hidden_if?(!user_signed_in?)] = link_to 'Log out', destroy_user_session_path, method: :delete
+  h3.text-muted Aspire Data Analytics
