@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   devise_scope :user do
     root to: 'devise/registrations#new'
   end
-  # TODO: Replace
-  get '/home', to: 'pages#home', as: :home
+  get '/done', to: 'pages#done', as: :done
+  get '/analytics', to: 'pages#analytics', as: :analytics
   resource :test do
     member do
       post :submit

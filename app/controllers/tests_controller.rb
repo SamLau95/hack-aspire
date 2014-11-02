@@ -13,5 +13,6 @@ class TestsController < ApplicationController
   	  		             student_id: current_user.id, 
   	  		             answer: val
   	end
+    redirect_to done_path
   end
 end
