@@ -12,6 +12,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
     resource = Student.new(sign_up_params)
 
     resource_saved = resource.save
+    if !resource.save
+      flash[:error] = 'Bad attributes!'
+      redirect_to root_path
+    end
+
     yield resource if block_given?
     if resource_saved
       if resource.active_for_authentication?
