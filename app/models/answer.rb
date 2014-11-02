@@ -17,6 +17,8 @@ class Answer < ActiveRecord::Base
 
   validates :question_id, :student_id, presence: true
 
+  scope :correct, -> { where correct: true }
+
   before_save :set_correct
 
   def set_correct
