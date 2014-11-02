@@ -45,7 +45,6 @@ ActiveRecord::Schema.define(version: 20141102130343) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "performance"
   end
 
   create_table "tests", force: true do |t|
