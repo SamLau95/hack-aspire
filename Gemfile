@@ -33,6 +33,7 @@ end
 
 group :development, :test do
   gem 'pry-rails'
+  gem 'pry-byebug'
   gem 'pry-rescue'
   gem 'guard-livereload'
 end

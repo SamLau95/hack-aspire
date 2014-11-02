@@ -10,9 +10,9 @@ class TestsController < ApplicationController
   	answers.each do |key, val|
   	  q = Question.find(key.to_i)
   	  a = Answer.create! question_id: key.to_i,
-  	  		             student_id: current_user.id, 
+  	  		             student_id: current_user.id,
   	  		             answer: val
   	end
-    redirect_to done_path
+    redirect_to done_page_path
   end
 end

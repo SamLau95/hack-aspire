@@ -3,9 +3,20 @@ Rails.application.routes.draw do
   devise_scope :user do
     root to: 'devise/registrations#new'
   end
-  get '/done', to: 'pages#done', as: :done
-  get '/analytics', to: 'pages#analytics', as: :analytics
-  resource :test do
+
+  resource :page, only: [], controller: 'pages' do
+    collection do
+      get :done
+    end
+  end
+
+  resources :teachers, only: [] do
+    collection do
+      get :analytics
+    end
+  end
+
+  resource :test, only: :show do
     member do
       post :submit
     end
