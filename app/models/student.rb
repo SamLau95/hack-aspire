@@ -27,6 +27,8 @@ class Student < User
 
   validates :classroom_id, presence: true
 
+  scope :taken_test, -> { where 'answers_count > 0' }
+
   after_initialize :set_classroom
 
   include Scorable
