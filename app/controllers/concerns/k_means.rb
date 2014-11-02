@@ -1,56 +1,65 @@
 class KMeans
   MAX_ITERATIONS = 100
 
-  def initialize(data, num_features, num_centroids)
-    @data = data
+  def initialize(data, num_features=Question.count, num_centroids=4)
+    # @data = data
+    @data ||= { 1 => [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1],
+              2 => [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+              3 => [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0],
+              4 => [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0],
+              5 => [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0],
+              6 => [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0],
+              7 => [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0],
+              8 => [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
+              9 => [1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+              10 => [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1] }
     @num_features = num_features
     @num_centroids = num_centroids
     execute
   end
 
   def execute
-    @centroids = gen_random_centroids
     # binding.pry
+    @centroids = gen_random_centroids
     MAX_ITERATIONS.times do
-      p @centroids
-      groups = initialize_groups @centroids
-
       # Assign each datum to its closest centroid
-      @data.each do |datum|
-        c = @centroids.min_by { |centroid| dist(datum, centroid)}
-        groups[c].push(datum)
-      end
+      group_data_by_centroids
 
       # Find mean of each bucket
-      new_centroids = Array.new
-      groups.each do |centroid, points|
-        new_centroids.push(mean(points))
+      new_centroids = {}
+      @centroids.each do |centroid, points|
+        new_centroid = mean(points)
+        new_centroids[new_centroid] = []
       end
 
       @centroids = new_centroids
     end
+    group_data_by_centroids
   end
 
   def get_labels
-    @data.map do |datum|
-      @centroids.index(@centroids.min_by { |centroid| dist(datum, centroid)})
+    # binding.pry
+    @centroids.values.map.with_index do |points, i|
+      [i, points.map { |point| @data.key(point) }]
     end
   end
 
   protected
 
-  def initialize_groups(centroids)
-    groups = Hash.new
-    centroids.each do |centroid|
-      groups[centroid] = Array.new
+  # Picks @num_centroids random centroids out of the data
+  def gen_random_centroids
+    centroids = {}
+    @data.values.shuffle.first(@num_centroids).each do |centroid|
+      centroids[centroid] = []
     end
-    groups
+    centroids
   end
 
-  def gen_random_centroids
-    # Pick n random centroids out of the data
-    @data.shuffle.first @num_centroids
-    # @num_centroids.times.map { @data[0].length.times.map { rand } }
+  def group_data_by_centroids
+    @data.each do |s_id, datum|
+      c = @centroids.keys.min_by { |centroid| dist(datum, centroid)}
+      @centroids[c].push(datum)
+    end
   end
 
   def mean(points)

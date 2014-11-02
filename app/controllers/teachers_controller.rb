@@ -3,7 +3,8 @@ class TeachersController < ApplicationController
 
   def analytics
     data = DataExtractor.new(Student.taken_test).execute
-    #@clustering = KMeans.new(data, data[0].length, 2).get_labels
+    groupings = KMeans.new(data).get_labels
+    gon.push data: GroupingsToJson.new(groupings).execute
   end
 
   def students
