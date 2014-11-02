@@ -131,7 +131,7 @@ questions:
     correct_answer: D
 
   - test_id: 1
-    question: 'Mr. Martinez has 750 boxes of cookies in his store, and each week he plans to sell 150 boxes of cookies. Assuming he does not receive a new shipment of cookies, how many boxes of cookies does he expect to have in his store at the end of w weeks, where w is an integer and 1≤w≤5?'
+    question: 'Mr. Martinez has 750 boxes of cookies in his store, and each week he plans to sell 150 boxes of cookies. Assuming he does not receive a new shipment of cookies, how many boxes of cookies does he expect to have in his store at the end of w weeks, where w is an integer and 1<=w<=5?'
     difficulty: 5
     subject: Math
     answer_choice: ['750(150w)', '750w−150', '750w−150w', '750−150w', '750+150w']
