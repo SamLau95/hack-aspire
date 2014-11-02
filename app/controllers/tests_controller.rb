@@ -1,4 +1,5 @@
 class TestsController < ApplicationController
+  before_filter :ensure_student_logged_in
   before_filter :verify_not_taken
 
   def show

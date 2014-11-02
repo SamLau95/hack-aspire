@@ -13,4 +13,19 @@ class ApplicationController < ActionController::Base
       fail 'Bad user!'
     end
   end
+
+  def fail_authorization_if(condition)
+    if condition
+      flash[:error] = 'You are not allowed to view that page!'
+      redirect_to root_path
+    end
+  end
+
+  def ensure_student_logged_in
+    fail_authorization_if(!current_user || !current_user.student?)
+  end
+
+  def ensure_teacher_logged_in
+    fail_authorization_if(!current_user || !current_user.teacher?)
+  end
 end
