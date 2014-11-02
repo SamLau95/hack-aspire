@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141102130343) do
+ActiveRecord::Schema.define(version: 20141102165055) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20141102130343) do
     t.string   "answer"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "correct",     default: false
   end
 
   create_table "classrooms", force: true do |t|
@@ -38,7 +39,9 @@ ActiveRecord::Schema.define(version: 20141102130343) do
     t.text     "correct_answer"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.text     "answer_choice",  array: true
+    t.text     "answer_choice",              array: true
+    t.integer  "number"
+    t.integer  "answers_count",  default: 0
   end
 
   create_table "students", force: true do |t|
@@ -70,7 +73,7 @@ ActiveRecord::Schema.define(version: 20141102130343) do
     t.string   "name"
     t.string   "type"
     t.integer  "classroom_id"
-    t.string   "performance"
+    t.integer  "answers_count",          default: 0
   end
 
   add_index "users", ["classroom_id"], name: "index_users_on_classroom_id", using: :btree

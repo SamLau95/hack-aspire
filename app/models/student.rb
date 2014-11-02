@@ -18,6 +18,7 @@
 #  name                   :string(255)
 #  type                   :string(255)
 #  classroom_id           :integer
+#  answers_count          :integer          default(0)
 #
 
 class Student < User
@@ -28,8 +29,14 @@ class Student < User
 
   after_initialize :set_classroom
 
+  include Scorable
+
   def student?
     true
+  end
+
+  def taken_test?
+    answers.any?
   end
 
   def set_classroom

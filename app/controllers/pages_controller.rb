@@ -1,8 +1,7 @@
 class PagesController < ApplicationController
-  def home
-  end
-
   def done
-    @performance = current_user.performance
+    @n_correct = current_user.n_correct
+    @total = current_user.total
+    @percent_right = current_user.percent_right
   end
 end

@@ -1,26 +1,28 @@
 class TestsController < ApplicationController
+  before_filter :verify_not_taken
+
   def show
-  	@test = Test.first
-  	@questions = @test.questions
+    @test = Test.first
+    @questions = @test.questions
   end
 
-  # takes the form data and processes it; stores array of 0's and 1's
   def submit
-  	answers = params[:answers]
-  	count = 0
-    correct = 0
-    answers.each do |key, val|
-  	  q = Question.find(key.to_i)
-  	  a = Answer.create! question_id: key.to_i,
-  	  		             student_id: current_user.id,
-  	  		             answer: val
-      count += 1
-      if q.correct_answer == val
-        correct += 1
-      end
-  	end
-    current_user.performance = "#{correct}/#{count}"
-    current_user.save
+    answers = params[:answers]
+    answers.each do |question_id, answer|
+      q = Question.find(question_id)
+      a = Answer.create! question_id: question_id,
+                         student: current_user,
+                         answer: answer
+    end
     redirect_to done_page_path
+  end
+
+  private
+
+  def verify_not_taken
+    if current_user.taken_test?
+      flash[:error] = "You've already taken the test!"
+      redirect_to done_page_path
+    end
   end
 end

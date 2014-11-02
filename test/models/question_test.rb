@@ -11,6 +11,8 @@
 #  created_at     :datetime
 #  updated_at     :datetime
 #  answer_choice  :text             is an Array
+#  number         :integer
+#  answers_count  :integer          default(0)
 #
 
 require 'test_helper'

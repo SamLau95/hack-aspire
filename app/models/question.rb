@@ -11,10 +11,16 @@
 #  created_at     :datetime
 #  updated_at     :datetime
 #  answer_choice  :text             is an Array
+#  number         :integer
+#  answers_count  :integer          default(0)
 #
 
 class Question < ActiveRecord::Base
+  default_scope -> { order :number }
+
   has_many :answers
 
   validates :test_id, presence: true
+
+  include Scorable
 end
